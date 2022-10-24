@@ -22,7 +22,7 @@ def close_connection(exception):
         db.close()
 
 
-def server_duration_save(server_name, duration):
+def server_duration_save(server_name: str, duration: int):
     connection = get_db()
     cursor = connection.cursor()
     query = "insert into durations (name, duration) values ('{name}', {duration});".format(

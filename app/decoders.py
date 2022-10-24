@@ -1,11 +1,12 @@
 import datetime
+import typing
 
 from app import models
 
 DATETIME_FORMAT = '%Y-%m-%dT%H:%M:%SZ'
 
 
-def decoded_report(json_content):
+def decoded_report(json_content: typing.Dict):
     start = datetime.datetime.strptime(json_content['start_time'], DATETIME_FORMAT)
     end = datetime.datetime.strptime(json_content['end_time'], DATETIME_FORMAT)
     duration = int((end - start).total_seconds())

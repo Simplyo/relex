@@ -1,10 +1,11 @@
 import dataclasses
+import typing
 
 
 @dataclasses.dataclass()
 class Report:
     server_name: str
-    duration: float
+    duration: int
 
 
 class Durations:
@@ -17,7 +18,7 @@ class Durations:
             self._durations[server_name] = []
         self._durations[server_name].append(duration)
 
-    def durations(self, server_name=None):
+    def durations(self, server_name: str = None) -> typing.List[int]:
         if server_name is not None:
             return self._durations[server_name]
 
