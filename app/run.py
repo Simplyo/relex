@@ -43,18 +43,6 @@ def process_outliers():
     return flask.jsonify(outlier_server_names)
 
 
-@app.route('/check740799', methods=['GET'])
-def check():
-    durations = statistics.server_arranged_durations()
-    return flask.jsonify(
-        total=len(durations.durations()),
-        records={
-            server_name: len(server_durations)
-            for server_name, server_durations in durations.items()
-        },
-    )
-
-
 def error_response():
     error = werkzeug.exceptions.InternalServerError()
     response = error.get_response()
